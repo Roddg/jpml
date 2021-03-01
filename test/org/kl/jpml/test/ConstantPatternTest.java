@@ -21,88 +21,161 @@ public class ConstantPatternTest {
     public void matchesStatementTest()  {
         /* 1 */
         byte value1 = 5;
-        matches(value1).as(
-                (byte) 5, ()  -> System.out.println("safe brunch 1 - " + value1)
-        );
-
         matches(value1,
-                (byte) 5, ()  -> System.out.println("brunch 1 - " + value1)
+                (byte) 5, ()  -> System.out.println("branch 1 - " + value1)
         );
 
         Figure figure1 = new Circle(5);
-        matches(figure1).as(
-                new Circle(5), ()  -> System.out.println("safe brunch 1 - " + figure1)
-        );
-
         matches(figure1,
-                new Circle(5), ()  -> System.out.println("brunch 1 - " + figure1)
+                new Circle(5), ()  -> System.out.println("branch 1 - " + figure1)
         );
 
         /* 2 */
         short value2 = 10;
         matches(value2,
-                (short) 5,  ()  -> System.out.println("brunch 1 - " + value2),
-                (short) 10, ()  -> System.out.println("brunch 2 - " + value2)
+                (short) 5,  ()  -> System.out.println("branch 1 - " + value2),
+                (short) 10, ()  -> System.out.println("branch 2 - " + value2)
         );
 
         Figure figure2 = new Circle(10);
         matches(figure2,
-                new Circle(5),  ()  -> System.out.println("brunch 1 - " + figure2),
-                new Circle(10), ()  -> System.out.println("brunch 2 - " + figure2)
+                new Circle(5),  ()  -> System.out.println("branch 1 - " + figure2),
+                new Circle(10), ()  -> System.out.println("branch 2 - " + figure2)
         );
 
         /* 3 */
         int value3 = 15;
 
         matches(value3,
-                5,  ()  -> System.out.println("brunch 1 - " + value3),
-                10, ()  -> System.out.println("brunch 2 - " + value3),
-                15, ()  -> System.out.println("brunch 3 - " + value3)
+                5,  ()  -> System.out.println("branch 1 - " + value3),
+                10, ()  -> System.out.println("branch 2 - " + value3),
+                15, ()  -> System.out.println("branch 3 - " + value3)
         );
 
         Figure figure3 = new Unpiped(15);
         matches(figure3,
-                new Unpiped(5),  ()  -> System.out.println("brunch 1 - " + figure3),
-                new Unpiped(10), ()  -> System.out.println("brunch 2 - " + figure3),
-                new Unpiped(15), ()  -> System.out.println("brunch 3 - " + figure3)
+                new Unpiped(5),  ()  -> System.out.println("branch 1 - " + figure3),
+                new Unpiped(10), ()  -> System.out.println("branch 2 - " + figure3),
+                new Unpiped(15), ()  -> System.out.println("branch 3 - " + figure3)
         );
 
         /* 4 */
         long value4 = 20;
         matches(value4,
-                5L,  ()  -> System.out.println("brunch 1 - " + value4),
-                10L, ()  -> System.out.println("brunch 2 - " + value4),
-                15L, ()  -> System.out.println("brunch 3 - " + value4),
-                20L, ()  -> System.out.println("brunch 4 - " + value4)
+                5L,  ()  -> System.out.println("branch 1 - " + value4),
+                10L, ()  -> System.out.println("branch 2 - " + value4),
+                15L, ()  -> System.out.println("branch 3 - " + value4),
+                20L, ()  -> System.out.println("branch 4 - " + value4)
         );
 
         Figure figure4 = new Unpiped(20);
         matches(figure4,
-                new Unpiped(5),  ()  -> System.out.println("brunch 1 - " + figure4),
-                new Unpiped(10), ()  -> System.out.println("brunch 2 - " + figure4),
-                new Unpiped(15), ()  -> System.out.println("brunch 3 - " + figure4),
-                new Unpiped(20), ()  -> System.out.println("brunch 4 - " + figure4)
+                new Unpiped(5),  ()  -> System.out.println("branch 1 - " + figure4),
+                new Unpiped(10), ()  -> System.out.println("branch 2 - " + figure4),
+                new Unpiped(15), ()  -> System.out.println("branch 3 - " + figure4),
+                new Unpiped(20), ()  -> System.out.println("branch 4 - " + figure4)
         );
 
         /* 5 */
         float value5 = 25.0F;
         matches(value5,
-                5.0F,  ()  -> System.out.println("brunch 1 - " + value5),
-                10.0F, ()  -> System.out.println("brunch 2 - " + value5),
-                15.0F, ()  -> System.out.println("brunch 3 - " + value5),
-                20.0F, ()  -> System.out.println("brunch 4 - " + value5),
-                25.0F, ()  -> System.out.println("brunch 5 - " + value5)
+                5.0F,  ()  -> System.out.println("branch 1 - " + value5),
+                10.0F, ()  -> System.out.println("branch 2 - " + value5),
+                15.0F, ()  -> System.out.println("branch 3 - " + value5),
+                20.0F, ()  -> System.out.println("branch 4 - " + value5),
+                25.0F, ()  -> System.out.println("branch 5 - " + value5)
         );
 
         /* 6 */
         double value6 = 30.0D;
         matches(value6,
-                5.0D,  ()  -> System.out.println("brunch 1 - " + value6),
-                10.0D, ()  -> System.out.println("brunch 2 - " + value6),
-                15.0D, ()  -> System.out.println("brunch 3 - " + value6),
-                20.0D, ()  -> System.out.println("brunch 4 - " + value6),
-                25.0D, ()  -> System.out.println("brunch 5 - " + value6),
-                30.0D, ()  -> System.out.println("brunch 6 - " + value6)
+                5.0D,  ()  -> System.out.println("branch 1 - " + value6),
+                10.0D, ()  -> System.out.println("branch 2 - " + value6),
+                15.0D, ()  -> System.out.println("branch 3 - " + value6),
+                20.0D, ()  -> System.out.println("branch 4 - " + value6),
+                25.0D, ()  -> System.out.println("branch 5 - " + value6),
+                30.0D, ()  -> System.out.println("branch 6 - " + value6)
+        );
+    }
+
+    @Test
+    public void matchesAsStatementTest() {
+        /* 1 */
+        byte value1 = 5;
+        matches(value1).as(
+                (byte) 5, ()  -> System.out.println("safe branch 1 - " + value1)
+        );
+
+        Figure figure1 = new Circle(5);
+        matches(figure1).as(
+                new Circle(5), ()  -> System.out.println("safe branch 1 - " + figure1)
+        );
+
+        /* 2 */
+        short value2 = 10;
+        matches(value2).as(
+                (short) 5,  ()  -> System.out.println("safe branch 1 - " + value2),
+                (short) 10, ()  -> System.out.println("safe branch 2 - " + value2)
+        );
+
+        Figure figure2 = new Circle(10);
+        matches(figure2).as(
+                new Circle(5),  ()  -> System.out.println("safe branch 1 - " + figure2),
+                new Circle(10), ()  -> System.out.println("safe branch 2 - " + figure2)
+        );
+
+        /* 3 */
+        int value3 = 15;
+
+        matches(value3).as(
+                5,  ()  -> System.out.println("safe branch 1 - " + value3),
+                10, ()  -> System.out.println("safe branch 2 - " + value3),
+                15, ()  -> System.out.println("safe branch 3 - " + value3)
+        );
+
+        Figure figure3 = new Unpiped(15);
+        matches(figure3).as(
+                new Unpiped(5),  ()  -> System.out.println("safe branch 1 - " + figure3),
+                new Unpiped(10), ()  -> System.out.println("safe branch 2 - " + figure3),
+                new Unpiped(15), ()  -> System.out.println("safe branch 3 - " + figure3)
+        );
+
+        /* 4 */
+        long value4 = 20;
+        matches(value4).as(
+                5L,  ()  -> System.out.println("safe branch 1 - " + value4),
+                10L, ()  -> System.out.println("safe branch 2 - " + value4),
+                15L, ()  -> System.out.println("safe branch 3 - " + value4),
+                20L, ()  -> System.out.println("safe branch 4 - " + value4)
+        );
+
+        Figure figure4 = new Unpiped(20);
+        matches(figure4).as(
+                new Unpiped(5),  ()  -> System.out.println("safe branch 1 - " + figure4),
+                new Unpiped(10), ()  -> System.out.println("safe branch 2 - " + figure4),
+                new Unpiped(15), ()  -> System.out.println("safe branch 3 - " + figure4),
+                new Unpiped(20), ()  -> System.out.println("safe branch 4 - " + figure4)
+        );
+
+        /* 5 */
+        float value5 = 25.0F;
+        matches(value5).as(
+                5.0F,  ()  -> System.out.println("safe branch 1 - " + value5),
+                10.0F, ()  -> System.out.println("safe branch 2 - " + value5),
+                15.0F, ()  -> System.out.println("safe branch 3 - " + value5),
+                20.0F, ()  -> System.out.println("safe branch 4 - " + value5),
+                25.0F, ()  -> System.out.println("safe branch 5 - " + value5)
+        );
+
+        /* 6 */
+        double value6 = 30.0D;
+        matches(value6).as(
+                5.0D,  ()  -> System.out.println("safe branch 1 - " + value6),
+                10.0D, ()  -> System.out.println("safe branch 2 - " + value6),
+                15.0D, ()  -> System.out.println("safe branch 3 - " + value6),
+                20.0D, ()  -> System.out.println("safe branch 4 - " + value6),
+                25.0D, ()  -> System.out.println("safe branch 5 - " + value6),
+                30.0D, ()  -> System.out.println("safe branch 6 - " + value6)
         );
     }
 
@@ -111,57 +184,117 @@ public class ConstantPatternTest {
         /* 1 */
         byte value1 = 10;
         matches(value1,
-                (byte) 5,   () -> System.out.println("brunch 1 - " + value1),
+                (byte) 5,   () -> System.out.println("branch 1 - " + value1),
                 Else.class, () -> System.out.println("Else value 1 type")
         );
 
         /* 2 */
         short value2 = 15;
         matches(value2,
-                (short) 5,     () -> System.out.println("brunch 1 - " + value2),
-                (short) 10,    () -> System.out.println("brunch 2 - " + value2),
+                (short) 5,     () -> System.out.println("branch 1 - " + value2),
+                (short) 10,    () -> System.out.println("branch 2 - " + value2),
                 Else.class, () -> System.out.println("Else value 2 type")
         );
 
         /* 3 */
         int value3 = 20;
         matches(value3,
-                5,  ()  -> System.out.println("brunch 1 - " + value3),
-                10, ()  -> System.out.println("brunch 2 - " + value3),
-                15, ()  -> System.out.println("brunch 3 - " + value3),
+                5,  ()  -> System.out.println("branch 1 - " + value3),
+                10, ()  -> System.out.println("branch 2 - " + value3),
+                15, ()  -> System.out.println("branch 3 - " + value3),
                 Else.class, () -> System.out.println("Else value 3 type")
         );
 
         /* 4 */
         long value4 = 25;
         matches(value4,
-                5L,  ()  -> System.out.println("brunch 1 - " + value4),
-                10L, ()  -> System.out.println("brunch 2 - " + value4),
-                15L, ()  -> System.out.println("brunch 3 - " + value4),
-                20L, ()  -> System.out.println("brunch 4 - " + value4),
+                5L,  ()  -> System.out.println("branch 1 - " + value4),
+                10L, ()  -> System.out.println("branch 2 - " + value4),
+                15L, ()  -> System.out.println("branch 3 - " + value4),
+                20L, ()  -> System.out.println("branch 4 - " + value4),
                 Else.class, () -> System.out.println("Else value 4 type")
         );
 
         /* 5 */
         float value5 = 30.0F;
         matches(value5,
-                5.0F,  ()  -> System.out.println("brunch 1 - " + value5),
-                10.0F, ()  -> System.out.println("brunch 2 - " + value5),
-                15.0F, ()  -> System.out.println("brunch 3 - " + value5),
-                20.0F, ()  -> System.out.println("brunch 4 - " + value5),
-                25.0F, ()  -> System.out.println("brunch 5 - " + value5),
+                5.0F,  ()  -> System.out.println("branch 1 - " + value5),
+                10.0F, ()  -> System.out.println("branch 2 - " + value5),
+                15.0F, ()  -> System.out.println("branch 3 - " + value5),
+                20.0F, ()  -> System.out.println("branch 4 - " + value5),
+                25.0F, ()  -> System.out.println("branch 5 - " + value5),
                 Else.class, () -> System.out.println("Else value 5 type")
         );
 
         /* 6 */
         double value6 = 35.0D;
         matches(value6,
-                5.0D,  ()  -> System.out.println("brunch 1 - " + value6),
-                10.0D, ()  -> System.out.println("brunch 2 - " + value6),
-                15.0D, ()  -> System.out.println("brunch 3 - " + value6),
-                20.0D, ()  -> System.out.println("brunch 4 - " + value6),
-                25.0D, ()  -> System.out.println("brunch 5 - " + value6),
-                30.0D, ()  -> System.out.println("brunch 6 - " + value6),
+                5.0D,  ()  -> System.out.println("branch 1 - " + value6),
+                10.0D, ()  -> System.out.println("branch 2 - " + value6),
+                15.0D, ()  -> System.out.println("branch 3 - " + value6),
+                20.0D, ()  -> System.out.println("branch 4 - " + value6),
+                25.0D, ()  -> System.out.println("branch 5 - " + value6),
+                30.0D, ()  -> System.out.println("branch 6 - " + value6),
+                Else.class, () -> System.out.println("Else value 6 type")
+        );
+    }
+
+    @Test
+    public void matchesAsStatementWithDefaultTest()  {
+        /* 1 */
+        byte value1 = 10;
+        matches(value1).as(
+                (byte) 5,   () -> System.out.println("safe branch 1 - " + value1),
+                Else.class, () -> System.out.println("Else value 1 type")
+        );
+
+        /* 2 */
+        short value2 = 15;
+        matches(value2).as(
+                (short) 5,     () -> System.out.println("safe branch 1 - " + value2),
+                (short) 10,    () -> System.out.println("safe branch 2 - " + value2),
+                Else.class, () -> System.out.println("Else value 2 type")
+        );
+
+        /* 3 */
+        int value3 = 20;
+        matches(value3).as(
+                5,  ()  -> System.out.println("safe branch 1 - " + value3),
+                10, ()  -> System.out.println("safe branch 2 - " + value3),
+                15, ()  -> System.out.println("safe branch 3 - " + value3),
+                Else.class, () -> System.out.println("Else value 3 type")
+        );
+
+        /* 4 */
+        long value4 = 25;
+        matches(value4).as(
+                5L,  ()  -> System.out.println("safe branch 1 - " + value4),
+                10L, ()  -> System.out.println("safe branch 2 - " + value4),
+                15L, ()  -> System.out.println("safe branch 3 - " + value4),
+                20L, ()  -> System.out.println("safe branch 4 - " + value4),
+                Else.class, () -> System.out.println("Else value 4 type")
+        );
+
+        /* 5 */
+        float value5 = 30.0F;
+        matches(value5).as(
+                5.0F,  ()  -> System.out.println("safe branch 1 - " + value5),
+                10.0F, ()  -> System.out.println("safe branch 2 - " + value5),
+                15.0F, ()  -> System.out.println("safe branch 3 - " + value5),
+                20.0F, ()  -> System.out.println("safe branch 4 - " + value5),
+                25.0F, ()  -> System.out.println("safe branch 5 - " + value5),
+                Else.class, () -> System.out.println("Else value 5 type")
+        );
+
+        /* 6 */
+        double value6 = 35.0D;
+        matches(value6).as(
+                5.0D,  ()  -> System.out.println("safe branch 1 - " + value6),
+                10.0D, ()  -> System.out.println("safe branch 2 - " + value6),
+                15.0D, ()  -> System.out.println("safe branch 3 - " + value6),
+                20.0D, ()  -> System.out.println("safe branch 4 - " + value6),
+                25.0D, ()  -> System.out.println("safe branch 5 - " + value6),
+                30.0D, ()  -> System.out.println("safe branch 6 - " + value6),
                 Else.class, () -> System.out.println("Else value 6 type")
         );
     }
@@ -171,58 +304,118 @@ public class ConstantPatternTest {
         /* 1 */
         byte value1 = 10;
         matches(value1,
-                (byte) 5,  ()  -> System.out.println("brunch 1 - " + value1),
-                Var.class, any -> System.out.println("Else value 1 type")
+                (byte) 5,  ()  -> System.out.println("branch 1 - " + value1),
+                Var.class, any -> System.out.println("Var value 1 type")
         );
 
         /* 2 */
         short value2 = 15;
         matches(value2,
-                (short) 5,  ()  -> System.out.println("brunch 1 - " + value2),
-                (short) 10, ()  -> System.out.println("brunch 2 - " + value2),
-                Var.class,  any -> System.out.println("Else value 2 type")
+                (short) 5,  ()  -> System.out.println("branch 1 - " + value2),
+                (short) 10, ()  -> System.out.println("branch 2 - " + value2),
+                Var.class,  any -> System.out.println("Var value 2 type")
         );
 
         /* 3 */
         int value3 = 20;
         matches(value3,
-                5,  ()  -> System.out.println("brunch 1 - " + value3),
-                10, ()  -> System.out.println("brunch 2 - " + value3),
-                15, ()  -> System.out.println("brunch 3 - " + value3),
-                Var.class,  any -> System.out.println("Else value 3 type")
+                5,  ()  -> System.out.println("branch 1 - " + value3),
+                10, ()  -> System.out.println("branch 2 - " + value3),
+                15, ()  -> System.out.println("branch 3 - " + value3),
+                Var.class,  any -> System.out.println("Var value 3 type")
         );
 
         /* 4 */
         long value4 = 25;
         matches(value4,
-                5L,  ()  -> System.out.println("brunch 1 - " + value4),
-                10L, ()  -> System.out.println("brunch 2 - " + value4),
-                15L, ()  -> System.out.println("brunch 3 - " + value4),
-                20L, ()  -> System.out.println("brunch 4 - " + value4),
-                Var.class,  any -> System.out.println("Else value 4 type")
+                5L,  ()  -> System.out.println("branch 1 - " + value4),
+                10L, ()  -> System.out.println("branch 2 - " + value4),
+                15L, ()  -> System.out.println("branch 3 - " + value4),
+                20L, ()  -> System.out.println("branch 4 - " + value4),
+                Var.class,  any -> System.out.println("Var value 4 type")
         );
 
         /* 5 */
         float value5 = 30.0F;
         matches(value5,
-                5.0F,  ()  -> System.out.println("brunch 1 - " + value5),
-                10.0F, ()  -> System.out.println("brunch 2 - " + value5),
-                15.0F, ()  -> System.out.println("brunch 3 - " + value5),
-                20.0F, ()  -> System.out.println("brunch 4 - " + value5),
-                25.0F, ()  -> System.out.println("brunch 5 - " + value5),
-                Var.class,  any -> System.out.println("Else value 5 type")
+                5.0F,  ()  -> System.out.println("branch 1 - " + value5),
+                10.0F, ()  -> System.out.println("branch 2 - " + value5),
+                15.0F, ()  -> System.out.println("branch 3 - " + value5),
+                20.0F, ()  -> System.out.println("branch 4 - " + value5),
+                25.0F, ()  -> System.out.println("branch 5 - " + value5),
+                Var.class,  any -> System.out.println("Var value 5 type")
         );
 
         /* 6 */
         double value6 = 35.0D;
         matches(value6,
-                5.0D,  ()  -> System.out.println("brunch 1 - " + value6),
-                10.0D, ()  -> System.out.println("brunch 2 - " + value6),
-                15.0D, ()  -> System.out.println("brunch 3 - " + value6),
-                20.0D, ()  -> System.out.println("brunch 4 - " + value6),
-                25.0D, ()  -> System.out.println("brunch 5 - " + value6),
-                30.0D, ()  -> System.out.println("brunch 6 - " + value6),
-                Var.class,  any -> System.out.println("Else value 6 type")
+                5.0D,  ()  -> System.out.println("branch 1 - " + value6),
+                10.0D, ()  -> System.out.println("branch 2 - " + value6),
+                15.0D, ()  -> System.out.println("branch 3 - " + value6),
+                20.0D, ()  -> System.out.println("branch 4 - " + value6),
+                25.0D, ()  -> System.out.println("branch 5 - " + value6),
+                30.0D, ()  -> System.out.println("branch 6 - " + value6),
+                Var.class,  any -> System.out.println("Var value 6 type")
+        );
+    }
+
+    @Test
+    public void matchesAsStatementWithVarTest()  {
+        /* 1 */
+        byte value1 = 10;
+        matches(value1).as(
+                (byte) 5,  ()  -> System.out.println("safe branch 1 - " + value1),
+                Var.class, any -> System.out.println("Var value 1 type")
+        );
+
+        /* 2 */
+        short value2 = 15;
+        matches(value2).as(
+                (short) 5,  ()  -> System.out.println("safe branch 1 - " + value2),
+                (short) 10, ()  -> System.out.println("safe branch 2 - " + value2),
+                Var.class,  any -> System.out.println("Var value 2 type")
+        );
+
+        /* 3 */
+        int value3 = 20;
+        matches(value3,
+                5,  ()  -> System.out.println("branch 1 - " + value3),
+                10, ()  -> System.out.println("branch 2 - " + value3),
+                15, ()  -> System.out.println("branch 3 - " + value3),
+                Var.class,  any -> System.out.println("Var value 3 type")
+        );
+
+        /* 4 */
+        long value4 = 25;
+        matches(value4,
+                5L,  ()  -> System.out.println("safe branch 1 - " + value4),
+                10L, ()  -> System.out.println("safe branch 2 - " + value4),
+                15L, ()  -> System.out.println("safe branch 3 - " + value4),
+                20L, ()  -> System.out.println("safe  4 - " + value4),
+                Var.class,  any -> System.out.println("Var value 4 type")
+        );
+
+        /* 5 */
+        float value5 = 30.0F;
+        matches(value5,
+                5.0F,  ()  -> System.out.println("safe branch 1 - " + value5),
+                10.0F, ()  -> System.out.println("safe branch 2 - " + value5),
+                15.0F, ()  -> System.out.println("safe branch 3 - " + value5),
+                20.0F, ()  -> System.out.println("safe branch 4 - " + value5),
+                25.0F, ()  -> System.out.println("safe branch 5 - " + value5),
+                Var.class,  any -> System.out.println("Var value 5 type")
+        );
+
+        /* 6 */
+        double value6 = 35.0D;
+        matches(value6,
+                5.0D,  ()  -> System.out.println("safe branch 1 - " + value6),
+                10.0D, ()  -> System.out.println("safe branch 2 - " + value6),
+                15.0D, ()  -> System.out.println("safe branch 3 - " + value6),
+                20.0D, ()  -> System.out.println("safe branch 4 - " + value6),
+                25.0D, ()  -> System.out.println("safe branch 5 - " + value6),
+                30.0D, ()  -> System.out.println("safe branch 6 - " + value6),
+                Var.class,  any -> System.out.println("Var value 6 type")
         );
     }
 
@@ -230,57 +423,57 @@ public class ConstantPatternTest {
     public void matchesStatementWithNullDefaultTest()  {
         /* 1 */
         matches(null,
-                (byte) 5,      () -> System.out.println("brunch 1"),
+                (byte) 5,      () -> System.out.println("branch 1"),
                 Null.class,    () -> System.out.println("Null value 1 type"),
                 Else.class, () -> System.out.println("Else value 1 type")
         );
 
         /* 2 */
         matches(null,
-                (short) 5,     () -> System.out.println("brunch 1"),
-                (short) 10,    () -> System.out.println("brunch 2"),
+                (short) 5,     () -> System.out.println("branch 1"),
+                (short) 10,    () -> System.out.println("branch 2"),
                 Null.class,    () -> System.out.println("Null value 2 type"),
                 Else.class, () -> System.out.println("Else value 2 type")
         );
 
         /* 3 */
         matches(null,
-                5,  ()  -> System.out.println("brunch 1"),
-                10, ()  -> System.out.println("brunch 2"),
-                15, ()  -> System.out.println("brunch 3"),
+                5,  ()  -> System.out.println("branch 1"),
+                10, ()  -> System.out.println("branch 2"),
+                15, ()  -> System.out.println("branch 3"),
                 Null.class, () -> System.out.println("Null value 3 type"),
                 Else.class, () -> System.out.println("Else value 3 type")
         );
 
         /* 4*/
         matches(null,
-                5L,  ()  -> System.out.println("brunch 1"),
-                10L, ()  -> System.out.println("brunch 2"),
-                15L, ()  -> System.out.println("brunch 3"),
-                20L, ()  -> System.out.println("brunch 4"),
+                5L,  ()  -> System.out.println("branch 1"),
+                10L, ()  -> System.out.println("branch 2"),
+                15L, ()  -> System.out.println("branch 3"),
+                20L, ()  -> System.out.println("branch 4"),
                 Null.class, () -> System.out.println("Null value 4 type"),
                 Else.class, () -> System.out.println("Else value 4 type")
         );
 
         /* 5 */
         matches(null,
-                5.0F,  ()  -> System.out.println("brunch 1"),
-                10.0F, ()  -> System.out.println("brunch 2"),
-                15.0F, ()  -> System.out.println("brunch 3"),
-                20.0F, ()  -> System.out.println("brunch 4"),
-                25.0F, ()  -> System.out.println("brunch 5"),
+                5.0F,  ()  -> System.out.println("branch 1"),
+                10.0F, ()  -> System.out.println("branch 2"),
+                15.0F, ()  -> System.out.println("branch 3"),
+                20.0F, ()  -> System.out.println("branch 4"),
+                25.0F, ()  -> System.out.println("branch 5"),
                 Null.class, () -> System.out.println("Null value 5 type"),
                 Else.class, () -> System.out.println("Else value 5 type")
         );
 
         /* 6 */
         matches(null,
-                5.0D,  ()  -> System.out.println("brunch 1"),
-                10.0D, ()  -> System.out.println("brunch 2"),
-                15.0D, ()  -> System.out.println("brunch 3"),
-                20.0D, ()  -> System.out.println("brunch 4"),
-                25.0D, ()  -> System.out.println("brunch 5"),
-                30.0D, ()  -> System.out.println("brunch 6"),
+                5.0D,  ()  -> System.out.println("branch 1"),
+                10.0D, ()  -> System.out.println("branch 2"),
+                15.0D, ()  -> System.out.println("branch 3"),
+                20.0D, ()  -> System.out.println("branch 4"),
+                25.0D, ()  -> System.out.println("branch 5"),
+                30.0D, ()  -> System.out.println("branch 6"),
                 Null.class,    () -> System.out.println("Null    value 6 type"),
                 Else.class, () -> System.out.println("Else value 6 type")
         );
@@ -290,57 +483,57 @@ public class ConstantPatternTest {
     public void matchesStatementWithNullVarTest()  {
         /* 1 */
         matches(null,
-                (byte) 5,   () -> System.out.println("brunch 1"),
+                (byte) 5,   () -> System.out.println("branch 1"),
                 Null.class, () -> System.out.println("Null value 1 type"),
                 Var.class, (Consumer<Byte>) any -> System.out.println("Var value 1 type")
         );
 
         /* 2 */
         matches(null,
-                (short) 5, () -> System.out.println("brunch 1"),
-                (short) 10, () -> System.out.println("brunch 2"),
+                (short) 5, () -> System.out.println("branch 1"),
+                (short) 10, () -> System.out.println("branch 2"),
                 Null.class, () -> System.out.println("Null value 2 type"),
                 Var.class, (Consumer<Short>) any -> System.out.println("Var value 2 type")
         );
 
         /* 3 */
         matches(null,
-                5,  ()  -> System.out.println("brunch 1"),
-                10, ()  -> System.out.println("brunch 2"),
-                15, ()  -> System.out.println("brunch 3"),
+                5,  ()  -> System.out.println("branch 1"),
+                10, ()  -> System.out.println("branch 2"),
+                15, ()  -> System.out.println("branch 3"),
                 Null.class, () -> System.out.println("Null value 3 type"),
                 Var.class,  (Consumer<Integer>) any -> System.out.println("Var value 3 type")
         );
 
         /* 4*/
         matches(null,
-                5L,  ()  -> System.out.println("brunch 1"),
-                10L, ()  -> System.out.println("brunch 2"),
-                15L, ()  -> System.out.println("brunch 3"),
-                20L, ()  -> System.out.println("brunch 4"),
+                5L,  ()  -> System.out.println("branch 1"),
+                10L, ()  -> System.out.println("branch 2"),
+                15L, ()  -> System.out.println("branch 3"),
+                20L, ()  -> System.out.println("branch 4"),
                 Null.class, () -> System.out.println("Null value 4 type"),
                 Var.class,  (Consumer<Long>) any -> System.out.println("Var value 4 type")
         );
 
         /* 5 */
         matches(null,
-                5.0F,  ()  -> System.out.println("brunch 1"),
-                10.0F, ()  -> System.out.println("brunch 2"),
-                15.0F, ()  -> System.out.println("brunch 3"),
-                20.0F, ()  -> System.out.println("brunch 4"),
-                25.0F, ()  -> System.out.println("brunch 5"),
+                5.0F,  ()  -> System.out.println("branch 1"),
+                10.0F, ()  -> System.out.println("branch 2"),
+                15.0F, ()  -> System.out.println("branch 3"),
+                20.0F, ()  -> System.out.println("branch 4"),
+                25.0F, ()  -> System.out.println("branch 5"),
                 Null.class, () -> System.out.println("Null value 5 type"),
                 Var.class,  (Consumer<Float>) any -> System.out.println("Var value 5 type")
         );
 
         /* 6 */
         matches(null,
-                5.0D,  ()  -> System.out.println("brunch 1"),
-                10.0D, ()  -> System.out.println("brunch 2"),
-                15.0D, ()  -> System.out.println("brunch 3"),
-                20.0D, ()  -> System.out.println("brunch 4"),
-                25.0D, ()  -> System.out.println("brunch 5"),
-                30.0D, ()  -> System.out.println("brunch 6"),
+                5.0D,  ()  -> System.out.println("branch 1"),
+                10.0D, ()  -> System.out.println("branch 2"),
+                15.0D, ()  -> System.out.println("branch 3"),
+                20.0D, ()  -> System.out.println("branch 4"),
+                25.0D, ()  -> System.out.println("branch 5"),
+                30.0D, ()  -> System.out.println("branch 6"),
                 Null.class, () -> System.out.println("Null value 6 type"),
                 Var.class,  (Consumer<Double>) any -> System.out.println("Var value 6 type")
         );
